@@ -1,0 +1,54 @@
+{
+  "name": "gatsby-plugin-a11y-report",
+  "version": "0.1.0",
+  "description": "Gatsby plugin for accessibility check",
+  "main": "index.js",
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "accessibility",
+    "axe"
+  ],
+  "author": "Shunsuke Ito <shunsuke.ito@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  },
+  "homepage": "https://github.com/shunito/gatsby-plugin-a11y-report",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shunito/gatsby-plugin-a11y-report.git"
+  },
+  "license": "MIT",
+  "scripts": {
+    "prepublish": "npm run build",
+    "build": "babel src --out-dir '.'",
+    "format": "prettier --write 'src/**/*.js' 'README.md'",
+    "watch": "npm run build -- --watch",
+    "release": "standard-version"
+  },
+  "dependencies": {
+    "axe-core": "^3.5.1",
+    "axe-puppeteer": "^1.0.0",
+    "express": "^4.17.1",
+    "glamor": "^2.20.40",
+    "puppeteer": "^2.1.1",
+    "react-toastify": "^5.5.0",
+    "winston": "^3.2.1",
+    "winston-daily-rotate-file": "^4.4.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.8.3",
+    "@babel/preset-env": "^7.8.4",
+    "babel-preset-gatsby-package": "^0.2.16",
+    "prettier": "^1.19.1",
+    "standard-version": "^7.1.0"
+  },
+  "peerDependencies": {
+    "gatsby": ">2.0.0",
+    "react": ">15.0.0",
+    "react-dom": ">15.0.0"
+  }
+}
