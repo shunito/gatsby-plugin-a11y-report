@@ -1,6 +1,6 @@
 {
   "name": "gatsby-plugin-a11y-report",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Gatsby plugin for accessibility check",
   "main": "index.js",
   "keywords": [
