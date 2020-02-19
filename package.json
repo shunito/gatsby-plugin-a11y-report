@@ -21,7 +21,7 @@
   "license": "MIT",
   "scripts": {
     "prepublish": "npm run build",
-    "build": "babel src --out-dir '.'",
+    "build": "babel src --out-dir .",
     "format": "prettier --write 'src/**/*.js' 'README.md'",
     "watch": "npm run build -- --watch",
     "release": "standard-version"
