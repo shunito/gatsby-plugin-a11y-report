@@ -1,7 +1,7 @@
 const axe = require('axe-core');
 const { toast } = require('react-toastify');
 const { css } = require('glamor');
-const logger = require('./console-logger');
+const logger = require('./browser-logger');
 
 require('react-toastify/dist/ReactToastify.css');
 
