@@ -1,15 +1,13 @@
 const path = require('path');
 
-// Logger Settings
-const winston = require('winston');
-
-const { format } = winston;
-require('winston-daily-rotate-file');
 
 // axe report Settings
 const express = require('express');
 const puppeteer = require('puppeteer');
 const { AxePuppeteer } = require('axe-puppeteer');
+
+// Logger
+const logger = require('./node-logger');
 
 // plugin configuration
 const config = {};
@@ -23,35 +21,6 @@ let server = {};
 
 const replacePath = (path) => (path === '/' ? path : path.replace(/\/$/, ''));
 
-// Logging Settings
-// TODO: Load configure from gatsby-config
-const axeLogTransport = new (winston.transports.DailyRotateFile)({
-  level: 'info',
-  filename: 'axe-report-%DATE%.log',
-  dirname: 'logs',
-  datePattern: 'YYYY-MM-DD-HH',
-  format: format.combine(format.timestamp(), format.splat(), format.json()),
-  zippedArchive: true,
-  maxSize: '100m',
-  maxFiles: '14d'
-});
-
-const logger = winston.createLogger({
-  level: 'info',
-  defaultMeta: {
-    service: 'axe-report'
-  },
-  transports: [
-    new winston.transports.Console({
-      level: 'info',
-      format: winston.format.combine(
-        winston.format.colorize(),
-        winston.format.json()
-      )
-    }),
-    axeLogTransport
-  ]
-});
 
 const logResults = (path, level, type, results) => {
   results.forEach((result) => {
